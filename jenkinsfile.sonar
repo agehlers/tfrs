@@ -8,6 +8,7 @@ node('master') {
         echo ">> SONARQUBE_URL: ${SONARQUBE_URL}"
         try {
           dir('frontend/sonar-runner') {
+            sh script: "ls -al"
             sh returnStdout: true, script: "./gradlew sonarqube -Dsonar.host.url=${SONARQUBE_URL} -Dsonar.verbose=true --stacktrace --info"
           }
         } finally { }
