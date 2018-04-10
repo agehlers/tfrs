@@ -1,4 +1,4 @@
-node('master') {
+node('maven') {
   checkout scm
   stage('SonarQube Scan') {
         SONARQUBE_URL = sh (
